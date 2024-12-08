@@ -1,0 +1,1 @@
+import{_ as s,c as a,a as r,o as t}from"./index-CCurEg6V.js";const e=s({},[["render",function(s,e){return t(),a("div",null,e[0]||(e[0]=[r("img",{src:"/assets/reports-DNXEHzZA.jpg",alt:""},null,-1)]))}],["__scopeId","data-v-753a2531"]]);export{e as default};

@@ -1,0 +1,35 @@
+{
+    "name": "sakai-vue",
+    "version": "3.10.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    },
+    "dependencies": {
+        "@fullcalendar/core": "^5.11.5",
+        "@fullcalendar/daygrid": "^5.11.5",
+        "@fullcalendar/interaction": "^5.11.3",
+        "@fullcalendar/timegrid": "^5.11.3",
+        "@fullcalendar/vue3": "^5.11.5",
+        "cally": "^0.7.1",
+        "chart.js": "3.3.2",
+        "gitignore": "^0.7.0",
+        "primeflex": "^3.3.1",
+        "primeicons": "^6.0.1",
+        "primevue": "^3.49.1",
+        "vue": "^3.2.41",
+        "vue-router": "^4.1.5"
+    },
+    "devDependencies": {
+        "@rushstack/eslint-patch": "^1.1.4",
+        "@vitejs/plugin-vue": "^4.1.0",
+        "@vue/eslint-config-prettier": "^7.0.0",
+        "eslint": "^8.22.0",
+        "eslint-plugin-vue": "^9.3.0",
+        "prettier": "^2.7.1",
+        "sass": "^1.55.0",
+        "vite": "^5.3.3"
+    }
+}
