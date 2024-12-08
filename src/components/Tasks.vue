@@ -238,16 +238,25 @@
         <div class="p-4 w">
           <h3 class="text-xxl font-semibold mb-5 text-inline">Editing task...</h3>
           <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="taskname">
+          Task:
+        </label>
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text" placeholder="Task Name" v-model="editedTask.text" />
           </div>
           <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+          Description:
+        </label>  
             <textarea v-model="editedTask.description"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="Task Description..." rows="5"></textarea>
           </div>
           <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="department">
+          Department:
+        </label>
             <select v-model="editedTask.tags.department"
               class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
               <option :value="editedTask.tags.department" selected>
@@ -259,6 +268,9 @@
             </select>
           </div>
           <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="status">
+          Status:
+        </label>
             <select v-model="editedTask.tags.status"
               class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
               <option :value="editedTask.tags.status" selected>

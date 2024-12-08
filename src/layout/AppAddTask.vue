@@ -27,7 +27,16 @@ const departments = [
 const statuses = ['To Do', 'In Progress', 'Done'];
 
 
-const date = new Date().toLocaleString();
+// const date = new Date().toLocaleString();
+const date = new Date().toLocaleString('es-ES', { // Configuración para formato 24h
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false // Asegura formato 24h
+});
 
 
 
@@ -72,16 +81,25 @@ const handleSubmit = async () => {
     <div class="p-4 w">
       <h3 class="text-xxl font-semibold mb-4 text-inline">Add a new task...</h3>
       <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="taskName">
+          Task:
+        </label>
         <input v-model="taskName" required
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="taskName" type="text" placeholder="Task Name" />
       </div>
       <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+          Description:
+        </label>
         <textarea v-model="taskDescription" required
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="department" type="text" placeholder="Task Description..."></textarea>
       </div>
       <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="department">
+          Department:
+        </label>
         <select v-model="selectedDepartment" required
           class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
           <option value="" disabled>Select department</option>
@@ -91,6 +109,9 @@ const handleSubmit = async () => {
         </select>
       </div>
       <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="status">
+          Status:
+        </label>
         <select v-model="selectedStatus" required
           class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
           <option value="" disabled>Select status</option>

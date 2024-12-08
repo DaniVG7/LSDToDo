@@ -202,49 +202,61 @@ const updateTask = () => {
         </div>
 
         <!-- Diálogo para editar tarea -->
-        <Dialog v-model:visible="editModal" modal :style="{ width: '400px' }">
-            <div class="p-4 w">
-                <h3 class="text-xxl font-semibold mb-5 text-inline">Editing task...</h3>
-                <div class="mb-4">
-                    <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        type="text" placeholder="Task Name" v-model="editedTask.text" />
-                </div>
-                <div class="mb-4">
-                    <textarea v-model="editedTask.description"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        placeholder="Task Description..." rows="5"></textarea>
-                </div>
-                <div class="mb-4">
-                    <select v-model="editedTask.tags.department"
-                        class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                        <option :value="editedTask.tags.department" selected>
-                            {{ editedTask.tags.department }}
-                        </option>
-                        <option v-for="department in filteredDepartments" :value="department">
-                            {{ department }}
-                        </option>
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <select v-model="editedTask.tags.status"
-                        class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                        <option :value="editedTask.tags.status" selected>
-                            {{ editedTask.tags.status }}
-                        </option>
-                        <option value="To Do" v-if="editedTask.tags.status !== 'To Do'">To Do</option>
-                        <option value="In Progress" v-if="editedTask.tags.status !== 'In Progress'">In Progress</option>
-                        <option value="Done" v-if="editedTask.tags.status !== 'Done'">Done</option>
-                    </select>
-                </div>
-                <div class="flex items-center justify-center editsButtons">
-                    <Button label="Save" severity="success" raised @click="updateTask" class="mr-5">
-                    </Button>
-                    <Button @click="closeEditModal" label="Cancel" severity="danger" plain text raised>
-                    </Button>
-                </div>
-            </div>
-        </Dialog>
+      <Dialog v-model:visible="editModal" modal :style="{ width: '400px' }">
+        <div class="p-4 w">
+          <h3 class="text-xxl font-semibold mb-5 text-inline">Editing task...</h3>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="taskname">
+          Task:
+        </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="text" placeholder="Task Name" v-model="editedTask.text" />
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+          Description:
+        </label>  
+            <textarea v-model="editedTask.description"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="Task Description..." rows="5"></textarea>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="department">
+          Department:
+        </label>
+            <select v-model="editedTask.tags.department"
+              class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              <option :value="editedTask.tags.department" selected>
+                {{ editedTask.tags.department }}
+              </option>
+              <option v-for="department in filteredDepartments" :key="department" :value="department">
+                {{ department }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="status">
+          Status:
+        </label>
+            <select v-model="editedTask.tags.status"
+              class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              <option :value="editedTask.tags.status" selected>
+                {{ editedTask.tags.status }}
+              </option>
+              <option value="To Do" v-if="editedTask.tags.status !== 'To Do'">To Do</option>
+              <option value="In Progress" v-if="editedTask.tags.status !== 'In Progress'">In Progress</option>
+              <option value="Done" v-if="editedTask.tags.status !== 'Done'">Done</option>
+            </select>
+          </div>
+          <div class="flex items-center justify-center editsButtons">
+            <Button label="Save" severity="success" raised @click="updateTask" class="mr-5">
+            </Button>
+            <Button @click="closeEditModal" label="Cancel" severity="danger" plain text raised>
+            </Button>
+          </div>
+        </div>
+      </Dialog>
         <Dialog v-model:visible="deleteModal" modal>
             <div class="p-4 w">
                 <h3 class="text-lg font-semibold mb-5 text-inline">Are you sure to delete the next task "{{
