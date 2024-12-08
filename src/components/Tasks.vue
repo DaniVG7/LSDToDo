@@ -72,13 +72,13 @@ onMounted(() => {
 });
 
 const TasksToDo = computed(() =>
-  filterTasks(todos.value.filter((todo) => todo.tags[1].status === "To Do"))
+  filterTasks(todos.value.filter((todo) => todo.tags.status === "To Do"))
 );
 const TasksInProgress = computed(() =>
-  filterTasks(todos.value.filter((todo) => todo.tags[1].status === "In Progress"))
+  filterTasks(todos.value.filter((todo) => todo.tags.status === "In Progress"))
 );
 const TasksDone = computed(() =>
-  filterTasks(todos.value.filter((todo) => todo.tags[1].status === "Done"))
+  filterTasks(todos.value.filter((todo) => todo.tags.status === "Done"))
 );
 const filteredDepartments = computed(() => {
   return departments.filter(department => department !== editedTask.value?.tags.department);
@@ -127,14 +127,14 @@ const updateTask = () => {
           </div>
           <div v-for="task in TasksToDo" :key="task.id" class="card cardToDo p-2 rounded mb-4 p-3" v-if="sectionVisibility.toDo">
             <div class="text-400 text-xs py-2">
-              {{ task.tags[0].department }}
+              {{ task.tags.department }}
             </div>
             <div class="text-900 font-medium text-xl">{{ task.text }}</div>
             <div class="text-500 py-2">
               {{ task.description }}
             </div>
             <div class="text-500">
-              <i style="font-size: 10px">Created on: {{ task.tags[2].date }}</i>
+              <i style="font-size: 10px">Created on: {{ task.tags .date }}</i>
             </div>
             <div class="text-right mt-2">
               <button class="btnDelete mr-2" @click.stop="openDeleteModal(task)">
@@ -176,7 +176,7 @@ const updateTask = () => {
               {{ task.description }}
             </div>
             <div class="text-500">
-              <i style="font-size: 10px">Created on: {{ task.tags[2].date }}</i>
+              <i style="font-size: 10px">Created on: {{ task.tags.date }}</i>
             </div>
             <div class="text-right mt-2">
               <button class="btnDelete mr-2" @click.stop="openDeleteModal(task)">

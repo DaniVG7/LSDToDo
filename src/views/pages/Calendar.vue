@@ -8,12 +8,12 @@ const value = ref([]);
 const disabledDates = ref([]); // Inicializar si es necesario
 const disabledDays = ref([]);  // Inicializar si es necesario
 // Función para manejar la selección de fecha en el calendario
-const mensaje = ref('');
-function handleSelect(event) {
-    const mensajeInput = event.target.value;  // Crear variable nueva para el valor del input de texto
-    mensaje = mensajeInput;  // añadir el valor el input a una variable global
-    //console.log('Input task:', event);
-}
+// const mensaje = ref('');
+// function handleSelect(event) {
+//     const mensajeInput = event.target.value;  // Crear variable nueva para el valor del input de texto
+//     mensaje = mensajeInput;  // añadir el valor el input a una variable global
+//     //console.log('Input task:', event);
+// }
 
 // Función para formatear el mes y año
 function formatMonthYear(monthYear) {
