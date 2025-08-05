@@ -40,8 +40,10 @@ const openDeleteModal = (task) => {
 const closeDeleteModal = () => {
     deleteModal.value = false;
 };
-
+//new commit 2222
 onMounted(() => {
+    fetchTodos();
+    fetchTodos();
     fetchTodos();
 });
 
